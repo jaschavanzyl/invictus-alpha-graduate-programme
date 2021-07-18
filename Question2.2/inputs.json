@@ -1,0 +1,21 @@
+{
+    "total_asset_cap": 0.5,
+    "total_capital": 1000,
+    "in_df": [
+        {
+            "ticker": "BTC",
+            "market_cap": 20000,
+            "price": 50
+        },
+        {
+            "ticker": "ETH",
+            "market_cap": 10000,
+            "price": 25
+        },
+        {
+            "ticker": "LTC",
+            "market_cap": 5000,
+            "price": 10
+        }
+    ]
+}
