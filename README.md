@@ -1,7 +1,5 @@
 <h3 align="center">Invictus Alpha Graduate Program Quantitative Assessment</h3>
 
-## About The Project
-
 ## Project Scaffolding
 ```
 ├── Question2.1
