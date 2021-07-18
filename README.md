@@ -1,20 +1,5 @@
-<h3 align="center">Invictus Alpha Graduate Program Quantitative Assessment</h3>
+<h2 align="center">Invictus Alpha Graduate Program Quantitative Assessment</h2>
 
-## Project Scaffolding
-```
-├── Question2.1
-│   ├── inputs.json
-│   └── main.py
-├── Question2.2
-│   ├── inputs.json
-│   └── main.py
-├── Question3
-│   └── main.py
-├── Question4
-│   └── main.py
-└── requirements.txt
-
-```
 ## Question 1 - Theory
 <p align="justify">
   
@@ -32,6 +17,28 @@
 </p>
 
 ## Getting Started - Question 2, 3 and 4
+
+## Project Scaffolding
+```
+jaschavanzyl/invictus-alpha-graduate-programme
+├── Images
+│   ├── question3-image1.png
+│   ├── question3-image2.png
+│   └── question3-image3.png
+├── Question2.1
+│   ├── inputs.json
+│   └── main.py
+├── Question2.2
+│   ├── inputs.json
+│   └── main.py
+├── Question3
+│   └── main.py
+├── Question4
+│   └── main.py
+└── requirements.txt
+
+```
+
 ### Prerequisites
 Please ensure you have the latest version of Python installed on your operating system. The steps for installing Python for your operating system can be found on the [official website](https://www.python.org/). 
 ### Installation
