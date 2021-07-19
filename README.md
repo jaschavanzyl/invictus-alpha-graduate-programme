@@ -1,9 +1,10 @@
 <h2 align="center">Invictus Alpha Graduate Program Quantitative Assessment</h2>
 
 ## Question 1 - Theory
+
 <p align="justify">
   
-**1.1.1)** Transactions are calculated based on gas (the number of computations that have to be done to complete the transaction), gas limit (maximum gas the user is willing to use per transaction) and the gas price (how much a user is willing to pay per gas of work done, usually denoted in Gwei). Transaction cost is then calculated as: transaction cost = gas price * gas used.  Gas limit is a constant user defined variable were gas is a constant determined by the number of computations per transaction. Acceptable gas prices can vary based on network congestion, the users’ gas price has to be within an acceptable range for the transaction to be executed, if the network is congested the price per computation increases and therefor the acceptable gas price increases. Transaction costs can also increase due to an increase in the ETH/USD exchange rate, as Ethereum becomes more valuable the dollar amount per transaction will increase.
+**1.1.1)** Transactions are calculated based on gas (the number of computations that have to be done to complete the transaction), gas limit (maximum gas the user is willing to use per transaction) and the gas price (how much a user is willing to pay per gas of work done, usually denoted in Gwei). Transaction cost is then calculated as `transaction cost = gas price * gas used`.  Gas limit is a constant user defined variable were gas is a constant determined by the number of computations per transaction. Acceptable gas prices can vary based on network congestion, the users’ gas price has to be within an acceptable range for the transaction to be executed, if the network is congested the price per computation increases and therefore the acceptable gas price increases. Transaction costs can also increase due to an increase in the ETH/USD exchange rate, as Ethereum becomes more valuable the dollar amount per transaction will increase.
 
 **1.1.2)** When processing any transaction there will be a fee, fee’s will need to be taken into account when deciding at which price to execute, as fees can cause a trade that seems profitable to incur a loss. Trading quantity and frequency will also affect the amount of fees you incur when trading as most exchanges charge lower fees for higher trade volumes. Frequent trading will incur more fees, combined with small volume trades, the effect will be amplified and a lot of the traders profit will be payed away in fees. Time of day will also play a role in the transaction cost, as with ETH, the network might be more congested later in the day and a higher fee will be charged to process the transaction. Taking all this into account, less frequent trading with high volume implemented on a buy and hold strategy is one way of eliminating some of the fees.  
 
@@ -14,6 +15,7 @@
 **1.2)** Stable coins are cryptocurrencies were the value of the cryptocurrency is pegged to an asset, e.g. fiat money or exchange-traded commodities. They can be collateralized or non-collateralized (algorithmic). Cryptocurrencies are often unpredictable and fluctuate widely, stable coins lessen these fluctuations by pegging the coin to a more stable asset e.g. the US dollar. Stable coins can be collateralized or non-collateralized, collateralized stable coins can be constructed by pegging the value of the coin to a currency, backing the coin with assets other than fiat or cryptocurrencies or by backing the coins with cryptocurrencies. Non-collateralized stable coins are backed by an algorithm that determines the price of the currency by looking at demand and supply. Another method of constructing stable coins is the hybrid method, these coins are collateralized by one of the above mentioned methods, but also modelled algorithmically, which is the non-collateralized portion.
 
 **1.3)** A perpetual future is a future to non-optionally buy or sell an asset at an unspecified future date. They can be held indefinitely which eliminates the need for roll overs. If a person buys `x` amount of bitcoin in the spot market and at the same time shorts `x` amount of bitcoin on a perpetual future their position is market neutral, they will however still receive the funding rate at pre-determined time intervals depending on the futures price vs the index price, this in turn creates an arbitrage opportunity which is created by the futures price converging to zero on a regular basis.
+  
 </p>
 
 ## Getting Started - Question 2, 3 and 4
@@ -41,13 +43,16 @@ jaschavanzyl/invictus-alpha-graduate-programme
 
 ### Prerequisites
 Please ensure you have the latest version of Python installed on your operating system. The steps for installing Python for your operating system can be found on the [official website](https://www.python.org/). 
+
 ### Installation
-Before attempting to execute any of the Python code, please ensure that the respective Python packages required to successfully run the code has been installed by firstly navigating to the root of the project where `requirements.txt` is located, and then running the following command:
+Before attempting to execute any code, please ensure that the required Python packages have been installed by firstly navigating to the root of the project where `requirements.txt` is located, and then running the following command:
 
  ```sh
   pip install -r requirements.txt
   ```
+  
   ## Usage
+  
   ### Question 2.1
   * Navigate to `Question2.1/`
   * Please ensure that `inputs.json` is located in the same directory as `main.py`
@@ -76,6 +81,7 @@ Before attempting to execute any of the Python code, please ensure that the resp
 ## Supporting Documentation
 
 ### Question 2.1 - Python Documentation
+
 The program reads input values from a JSON file with the following strucuture:
 
 ``` JSON
@@ -109,9 +115,9 @@ Once the respective fields have been read, the program ensures that the inputs a
 
 Assuming that the inputs are error free, the program will proceed to create a `CapitalAllocator` object for each of the `accounts` which has the member fields `account_name`, `old_allocation_fraction`, `new_allocation_fraction` and `new_allocation_difference`- which is calculated by subtracting `new_allocation_difference` from `old_allocation_difference`.
 
-After these `CapitalAllocator` objects are created, each object is tested against the entire collection of objects to determine which allocation shifts need to be made. When a `CapitalAllocator` object has an __excess__ allocation available whilst its respective peer has an allocation __requirement__, the object will shift either its full __excess__ to the peer, or the exact amount required.
+After these `CapitalAllocator` objects are created, each respective object is tested against the entire collection of `CapitalAllocator` objects to determine which allocation shifts need to be made. When a `CapitalAllocator` object has an __excess__ allocation available whilst its respective peer has an allocation __requirement__, the object will shift either its full __excess__ to the peer, or the exact amount required if possible.
 
-Once this process has finished, the program will print its output to the terminal.
+Once this process has finished, the program will print the output to the terminal.
 
 
 ### Question 2.2 - Python Documentation
@@ -148,7 +154,7 @@ When the desired asset cap is smaller than the `check_weight` the instruments ar
 
 ### Question 3 - Python Documentation
 
-The program fetches the 5 minute interval OHCLV data for the past year from FTX using the `ccxt` Python package. Since FTX only allows a user to pull a certain amount of data at any given time, the program needs to send multiple request. During this period, the program will append the data received data from each request to a Pandas `data_frame` variable. Once the desired length is satisfied, the program will continue execution.
+The program fetches the 5 minute interval OHCLV data for the past year from FTX using the `ccxt` Python package. Since FTX only allows a user to pull a certain amount of data at any given time, the program needs to send multiple request. During this period, the program will append the data received from each request to a Pandas `DataFrame` object. Once the desired length is satisfied, the program will continue execution.
 
 The **Sharpe ratio** is calculated by taking the percentage change of closing prices and subtracting the risk-free rate divided by `n ( n = days in a year * number of 5 minutes in a day)`. The program then calculates the mean of the result as well as the standard deviation of the percentage changes prior to subtracting the risk-free rate. This mean is the divided by the standard deviation and the result is multiplied by the square root of `n`, which annualizes the data.
 
